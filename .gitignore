@@ -1,0 +1,5 @@
+node_modules/*
+wallets/*
+yarn.lock
+config.json
+*.log

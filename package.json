@@ -1,0 +1,12 @@
+{
+  "name": "uPlexa-Churn",
+  "version": "1.0.0",
+  "description": "A script that merges smaller outputs into larger outputs.",
+  "main": "app.js",
+  "repository": "https://github.com/quantumleaper/uPlexa-churn",
+  "author": "QuantumLeaper",
+  "license": "MIT",
+  "dependencies": {
+    "uplexa-nodejs": "https://github.com/uplexa/uplexa-nodejs"
+  }
+}
