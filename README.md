@@ -1,4 +1,4 @@
-# Graviex uPlexa Sweep Script
+# uPlexa Churn App
 
 This script, will sweep a multitude of smaller outputs into larger outputs in-order to allow larger TX's (withdraws) from the Graviex exchange (or other systems).
 
@@ -12,7 +12,7 @@ We will not actually be using the ```sweep_all``` function standard to the crypt
 # How it works:
 * Checks balance of wallet
 * Takes balance, divides by X (X being the amount of outgoing TX's you need to be able to handle per 20 minutes) - default: 32
-* Runs a transfer_split of ```balance / X - Y``` (Y = to assume for fees)
+* Runs a transfer_split of ```balance / X - Y``` (Y = to assume for fees) (runs: X amount of times)
 
 
 
