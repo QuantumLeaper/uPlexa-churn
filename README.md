@@ -7,7 +7,8 @@ to effectively merge smaller outputs to make larger amounts spendable for servic
 
 
 # Notes:
-We will not actually be using the ```sweep_all``` function standard to the cryptonote/monero/uplexa protocol. Instead, we will be using ```transfer_split``` so we do not merge all outputs into one singular output, which would then reduce the amount of TX's that could be made per 20 minutes on the service (exchange).
+We will be using the SWEEP_ALL function of the uPlexa wallet unlike master branch where we use transfer_split.
+This should only be used when withdraws become a problem over specific amounts.
 
 # How it works:
 * Checks balance of wallet
@@ -33,6 +34,6 @@ Now, at the bottom of app.js you may configure this to run indefinitely with a l
 
 
 # Final notes
-This application is a simple solution for services in which receive a high volume of small outputs to their wallets whom are looking to send large TX's. If you are using this and having it automagically run, you could use cronjobs and have it write the logs to a file. Or, use pm2 && pm2-logrotate. The other option is just running this manually once a month and watching as it completes.
+This application is a simple solution for services in which receive a high volume of small outputs to their wallets whom are looking to send large TX's. This should only be ran when withdraws over a particular amount becomes problematic. This should not be ran weekly.
 
 After running this script, withdraws/sending TX's may not work for ~20 minutes as all balance is lockedfor 20 minutes. TO avoid a withdraw downtime of 20 minutes, you could set the ```adjustFee``` to something higher so whatever adjustFee*mergeOuts is, will be the wallets unlocked balance after the script runs (minus TX fees)
