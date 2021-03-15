@@ -26,10 +26,10 @@ const adjustFee = global.config.coinConfig.adjustFee
 //Initiate wallet before any functions, only open once.
 void (async () => Wallet.open_wallet(global.config.coinConfig.walletName))()
 
-const transfer = async (tx, options) => {
+const sweep = async (tx, options) => {
   try {
-    // Remember, we're using transferSplit here.
-    const res = await Wallet.transferSplit(tx, options)
+    // We are using sweepAll here.
+    const res = await Wallet.sweep_all(tx, options)
     return res
   } catch (err) {
     error(err)
@@ -65,7 +65,7 @@ const churnOuts = async function(Wallet) {
   // Check unlocked balance before each transfer
   let unlockedBalance = gotBalance.unlocked_balance / div
   if(unlockedBalance >= perOutTransfer) {
-   const walletRes = await transfer(transaction, options)
+   const walletRes = await sweep(address)
    //const walletRes = 1
    if (walletRes.error || walletRes === false) {
      if (walletRes.error.code === -37) error('-37') //return -37
