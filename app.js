@@ -68,9 +68,9 @@ const churnOuts = async function(Wallet) {
    const walletRes = await sweep(address)
    //const walletRes = 1
    if (walletRes.error || walletRes === false) {
-     if (walletRes.error.code === -37) error('-37') //return -37
      error(walletRes.error)
-    //return false
+     if (walletRes.error.code === -37) error('-37') //return -37
+      error(walletRes.error)
     } else { log(walletRes.tx_hash_list) }
     log('Sent ' + perOutTransfer + '. Unlocked balance: ' + unlockedBalance)
   } else {
